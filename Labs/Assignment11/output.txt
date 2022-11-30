@@ -1,0 +1,100 @@
+/usr/lib/python3/dist-packages/paramiko/transport.py:236: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+SSH password: 
+ ___________________
+< PLAY [Assignment] >
+ -------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ________________________
+< TASK [Gathering Facts] >
+ ------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [192.168.1.7]
+ _________________
+< TASK [new user] >
+ -----------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+[WARNING]: The input password appears not to have been hashed. The 'password' argument must be encrypted for this module to work
+properly.
+changed: [192.168.1.7]
+ ________________________________________________
+< TASK [install the package tree on the machine] >
+ ------------------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+changed: [192.168.1.7]
+ __________________________________________________________
+/ TASK [Get the list of partitions on the machine, that is \
+\ /etc/partitions file]                                    /
+ ----------------------------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [192.168.1.7]
+ ___________________
+< TASK [partitions] >
+ -------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot import
+name 'environmentfilter' from 'jinja2.filters' (/home/athrav/.local/lib/python3.10/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters' (/home/athrav/.local/lib/python3.10/site-packages/jinja2/filters.py)
+ok: [192.168.1.7] => {
+    "hostvars[inventory_hostname].ansible_devices.keys() | list": [
+        "loop1",
+        "loop8",
+        "loop15",
+        "loop6",
+        "loop13",
+        "loop4",
+        "loop11",
+        "sr0",
+        "loop2",
+        "loop0",
+        "loop9",
+        "loop7",
+        "sda",
+        "loop14",
+        "loop5",
+        "loop12",
+        "loop3",
+        "loop10"
+    ]
+}
+ ____________
+< PLAY RECAP >
+ ------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+192.168.1.7                : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 

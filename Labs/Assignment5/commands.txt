@@ -1,0 +1,14 @@
+docker run -it ubuntu
+apt update; apt install net-tools iputils-ping
+docker commit <container-id> assignment5-ubuntu
+exit
+docker network create A
+docker network create B
+docker run -it -v /var/www/html:/www --network A --hostname instance1 assignment-ubuntu
+hostname; ifconfig -a;ping -c 1 172.18.0.3;ls /www;
+docker run -it -v /var/www/html:/www --network A --hostname instance2 assignment-ubuntu
+hostname; ifconfig -a;ping -c 1 172.18.0.2;ls /www;
+docker run -it --network B --hostname instance3 assignment-ubuntu
+hostname; ifconfig -a;ping -c 1 172.20.0.3;ls /www;
+docker run -it --network B --hostname instance4 assignment-ubuntu
+hostname; ifconfig -a;ping -c 1 172.20.0.2;ls /www;

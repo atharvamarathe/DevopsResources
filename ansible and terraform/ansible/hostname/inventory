@@ -1,0 +1,2 @@
+server1 ansible_host=192.168.122.71 ansible_ssh_pass=redhat ansible_user=root
+server2 ansible_host=192.168.122.221 ansible_ssh_pass=redhat ansible_user=root

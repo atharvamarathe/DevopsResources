@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minikube
+  labels:
+    app: assgn7
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: assgn7
+  template:
+    metadata:
+      labels:
+        app: assgn7
+    spec:
+      containers:
+        - image: ubuntu
+          name: ubuntu
+          command:
+            - "sleep"
+            - "100000"
+        - image: nginx
+          name: nginx

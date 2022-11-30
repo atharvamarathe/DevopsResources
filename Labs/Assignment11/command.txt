@@ -1,0 +1,1 @@
+ansible-playbook -i inventory 111903024.yaml -u atharva -k --extra-vars "ansible_sudo_pass=atharva"

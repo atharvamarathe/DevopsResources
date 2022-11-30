@@ -1,0 +1,9 @@
+- name: Install MySQL Packages
+  yum:
+    name: mysql
+- name: Start MySQL Service
+  service:
+    name: mysql
+    stete: started
+- name: Configure Database
+    << code hidden >>
