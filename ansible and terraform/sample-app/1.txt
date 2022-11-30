@@ -1,0 +1,52 @@
+2022-10-21T16:36:46.136+0530	INFO	logger/logger.go:45	Success to read zap logger configuration: zaplogger.develop.yml
+2022-10-21T16:36:46.148+0530	INFO	sample-app/main.go:28	Loaded this configuration : application.develop.yml
+2022-10-21T16:36:46.148+0530	INFO	repository/repository.go:50	Try database connection
+2022-10-21T16:36:46.149+0530	INFO	repository/repository.go:56	Success database connection, book.db:
+2022-10-21T16:36:46.149+0530	DEBUG	logger/gormlogger.go:58	[gorm] PRAGMA foreign_keys
+2022-10-21T16:36:46.153+0530	DEBUG	logger/gormlogger.go:58	[gorm] DROP TABLE IF EXISTS `book`
+2022-10-21T16:36:46.153+0530	DEBUG	logger/gormlogger.go:58	[gorm] PRAGMA foreign_keys
+2022-10-21T16:36:46.157+0530	DEBUG	logger/gormlogger.go:58	[gorm] DROP TABLE IF EXISTS `category_master`
+2022-10-21T16:36:46.157+0530	DEBUG	logger/gormlogger.go:58	[gorm] PRAGMA foreign_keys
+2022-10-21T16:36:46.162+0530	DEBUG	logger/gormlogger.go:58	[gorm] DROP TABLE IF EXISTS `format_master`
+2022-10-21T16:36:46.162+0530	DEBUG	logger/gormlogger.go:58	[gorm] PRAGMA foreign_keys
+2022-10-21T16:36:46.167+0530	DEBUG	logger/gormlogger.go:58	[gorm] DROP TABLE IF EXISTS `account_master`
+2022-10-21T16:36:46.167+0530	DEBUG	logger/gormlogger.go:58	[gorm] PRAGMA foreign_keys
+2022-10-21T16:36:46.171+0530	DEBUG	logger/gormlogger.go:58	[gorm] DROP TABLE IF EXISTS `authority_master`
+2022-10-21T16:36:46.172+0530	DEBUG	logger/gormlogger.go:58	[gorm] SELECT count(*) FROM sqlite_master WHERE type='table' AND name="category_master"
+2022-10-21T16:36:46.175+0530	DEBUG	logger/gormlogger.go:58	[gorm] CREATE TABLE `category_master` (`id` integer,`name` text,PRIMARY KEY (`id`))
+2022-10-21T16:36:46.175+0530	DEBUG	logger/gormlogger.go:58	[gorm] SELECT count(*) FROM sqlite_master WHERE type='table' AND name="format_master"
+2022-10-21T16:36:46.178+0530	DEBUG	logger/gormlogger.go:58	[gorm] CREATE TABLE `format_master` (`id` integer,`name` text,PRIMARY KEY (`id`))
+2022-10-21T16:36:46.178+0530	DEBUG	logger/gormlogger.go:58	[gorm] SELECT count(*) FROM sqlite_master WHERE type='table' AND name="book"
+2022-10-21T16:36:46.182+0530	DEBUG	logger/gormlogger.go:58	[gorm] CREATE TABLE `book` (`id` integer,`title` text,`isbn` text,`category_id` integer,`format_id` integer,PRIMARY KEY (`id`),CONSTRAINT `fk_book_category` FOREIGN KEY (`category_id`) REFERENCES `category_master`(`id`),CONSTRAINT `fk_book_format` FOREIGN KEY (`format_id`) REFERENCES `format_master`(`id`))
+2022-10-21T16:36:46.182+0530	DEBUG	logger/gormlogger.go:58	[gorm] SELECT count(*) FROM sqlite_master WHERE type='table' AND name="category_master"
+2022-10-21T16:36:46.182+0530	DEBUG	logger/gormlogger.go:58	[gorm] SELECT * FROM `category_master` LIMIT 1
+2022-10-21T16:36:46.182+0530	DEBUG	logger/gormlogger.go:58	[gorm] SELECT count(*) FROM sqlite_master WHERE type='table' AND name="format_master"
+2022-10-21T16:36:46.182+0530	DEBUG	logger/gormlogger.go:58	[gorm] SELECT * FROM `format_master` LIMIT 1
+2022-10-21T16:36:46.182+0530	DEBUG	logger/gormlogger.go:58	[gorm] SELECT count(*) FROM sqlite_master WHERE type='table' AND name="authority_master"
+2022-10-21T16:36:46.186+0530	DEBUG	logger/gormlogger.go:58	[gorm] CREATE TABLE `authority_master` (`id` integer,`name` text,PRIMARY KEY (`id`))
+2022-10-21T16:36:46.186+0530	DEBUG	logger/gormlogger.go:58	[gorm] SELECT count(*) FROM sqlite_master WHERE type='table' AND name="account_master"
+2022-10-21T16:36:46.190+0530	DEBUG	logger/gormlogger.go:58	[gorm] CREATE TABLE `account_master` (`id` integer,`name` text,`password` text,`authority_id` integer,PRIMARY KEY (`id`),CONSTRAINT `fk_account_master_authority` FOREIGN KEY (`authority_id`) REFERENCES `authority_master`(`id`))
+2022-10-21T16:36:46.190+0530	DEBUG	logger/gormlogger.go:58	[gorm] SELECT count(*) FROM sqlite_master WHERE type='table' AND name="authority_master"
+2022-10-21T16:36:46.190+0530	DEBUG	logger/gormlogger.go:58	[gorm] SELECT * FROM `authority_master` LIMIT 1
+2022-10-21T16:36:46.194+0530	DEBUG	logger/gormlogger.go:58	[gorm] INSERT INTO `authority_master` (`name`) VALUES ("Admin") RETURNING `id`
+2022-10-21T16:36:46.263+0530	DEBUG	logger/gormlogger.go:58	[gorm] INSERT INTO `account_master` (`name`,`password`,`authority_id`) VALUES ("test","$2a$10$oQWnti2SaO6CSZ.LhebntuNGc1N2v3XQnm87xcpVaYvdmkAnvmozy",1) RETURNING `id`
+2022-10-21T16:36:46.267+0530	DEBUG	logger/gormlogger.go:58	[gorm] INSERT INTO `category_master` (`name`) VALUES ("Technical Book") RETURNING `id`
+2022-10-21T16:36:46.271+0530	DEBUG	logger/gormlogger.go:58	[gorm] INSERT INTO `category_master` (`name`) VALUES ("Magazine") RETURNING `id`
+2022-10-21T16:36:46.277+0530	DEBUG	logger/gormlogger.go:58	[gorm] INSERT INTO `category_master` (`name`) VALUES ("Novel") RETURNING `id`
+2022-10-21T16:36:46.282+0530	DEBUG	logger/gormlogger.go:58	[gorm] INSERT INTO `format_master` (`name`) VALUES ("Paper Book") RETURNING `id`
+2022-10-21T16:36:46.287+0530	DEBUG	logger/gormlogger.go:58	[gorm] INSERT INTO `format_master` (`name`) VALUES ("e-Book") RETURNING `id`
+2022-10-21T16:36:46.354+0530	INFO	sample-app/main.go:42	Served the static contents. path: ./public/
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v4.6.3
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+2022-10-21T16:36:46.354+0530	ERROR	sample-app/main.go:46	listen tcp :8000: bind: address already in use
+main.main
+	/root/sample-app/main.go:46
+runtime.main
+	/usr/lib/golang/src/runtime/proc.go:250
